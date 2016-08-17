@@ -31,7 +31,8 @@ $ npm start
 - **npm run clean**: Removes the bundled files.
 
 ### Built-in example
-A simple 'Hello World' Vue.js application is included in this boilerplate. You can find those files under `/client`.
+A simple 'Hello World' Vue.js application contains an example by Evan You (yyx990803) is included in this boilerplate. 
+You can find those files under `/client`.
 
 Hot reloading is only applied in development mode. In production mode, the code base is pre-compiled and placed under `.build/static`.
 
