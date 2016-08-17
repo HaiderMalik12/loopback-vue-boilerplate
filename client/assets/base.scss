@@ -1,0 +1,9 @@
+$font-stack: Heiti, 微軟正黑體, Microsoft JhengHei, Roboto, Helvetica, Arial, sans-serif;
+
+html, body{
+  font-family: $font-stack;
+}
+
+/* vue.js hide the element */
+[v-cloak] { opacity: 0; }
+
