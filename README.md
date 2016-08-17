@@ -43,3 +43,6 @@ Hot reloading is only applied in development mode. In production mode, the code 
 ### Copyright
 
 Copyright (C) 2016 Trey Lin, released under the MIT License.
+
+### Reference
+[loopback-redux-react-boilerplate](https://github.com/tngan/loopback-redux-react-boilerplate)
