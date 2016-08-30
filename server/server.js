@@ -1,27 +1,29 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 var app = module.exports = loopback();
-var webpack = require('webpack');
 var path = require('path');
 var env = require('../config/environment');
 var mode = process.env.NODE_ENV || env.DEVELOPMENT;
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('../config');
-const webpackConfig = process.env.NODE_ENV === env.PRODUCTION
-  ? require('../build/webpack.prod.conf')
-  : require('../build/webpack.dev.conf');
-// var webpackConfig = require(`../webpack.config.${mode}`);
-var compiler = webpack(webpackConfig);
 
 if(mode === env.DEVELOPMENT) {
+  var webpack = require('webpack');
+  var webpackDevMiddleware = require('webpack-dev-middleware');
+  var webpackHotMiddleware = require('webpack-hot-middleware');
+  const webpackConfig = process.env.NODE_ENV === env.PRODUCTION
+    ? require('../build/webpack.prod.conf')
+    : require('../build/webpack.dev.conf');
+  // var webpackConfig = require(`../webpack.config.${mode}`);
+  var compiler = webpack(webpackConfig);
+
   // only need in development
   app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));  
   // allow loopback to locate files built by webpack
+  // match path to /static
   var staticPath = path.join(config.build.assetsPublicPath, config.build.assetsSubDirectory)
   app.use(staticPath, loopback.static('./' + config.build.assetsSubDirectory))
+  app.use(webpackHotMiddleware(compiler));
 }
-app.use(webpackHotMiddleware(compiler));
 
 boot(app, __dirname);
 

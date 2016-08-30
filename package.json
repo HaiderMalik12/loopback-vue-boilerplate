@@ -1,6 +1,6 @@
 {
   "name": "loopback-vue-boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "server/server.js",
   "scripts": {
     "start": "node .",
@@ -24,7 +24,8 @@
     "loopback-component-explorer": "^2.4.0",
     "loopback-datasource-juggler": "^2.39.0",
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^1.0.1"
+    "strong-error-handler": "^1.0.1",
+    "webpack-merge": "^0.8.3"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
